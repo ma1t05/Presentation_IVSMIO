@@ -1,0 +1,104 @@
+\documentclass[10pt,usenames,dvipsnames,svgnames,table]{beamer}
+\usetheme{Warsaw}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\graphicspath{ {./imagenes/} }
+\allowdisplaybreaks
+
+\title{Model for Optimal Location of Car Werck Adjusters}
+\subtitle{Presentation to Committee}
+\author{Luis Maltos}
+\institute[PISIS]{
+  Posgrado en Ingenier\'a de Sistemas \\
+  FIME / UANL}
+\date[Sinodales]{\today}
+
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Contents}
+  \tableofcontents
+\end{frame}
+
+%%% Introduction %%%
+%%%  %%%
+%%% Models %%%
+%%% Results %%%
+%%% References %%%
+\section{The Stochastic Queue p-Median}
+\begin{frame}[allowframebreaks]  \frametitle{Stochastic Queue p-Median}
+  \input{SQpM-model}
+\end{frame}
+
+\section{Static Models}
+\subsection{Queuing Maximal Covering Location-Allocation Model}
+\begin{frame}[allowframebreaks]
+  \frametitle{QM-CLAM}
+  \input{QM-CLAM}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.15]{PMCLAM_30_3_1_49_90}
+    \caption{3 centers 49 min 90\% reliability}
+  \end{figure}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.15]{PMCLAM_30_4_1_48_90}
+    \caption{4 centers 48 min 90\% reliability}
+  \end{figure}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.15]{PMCLAM_30_4_1_49_90}
+    \caption{4 centers 49 min 90\% reliability}
+  \end{figure}
+\end{frame}
+
+\subsection{Model for locating emergency medical vehicles}
+\begin{frame}[allowframebreaks]
+  \temetitle{Model for locating emergency medical vehicles}
+  \input{Goldberg}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.2]{Goldberg_30_3}
+    \caption{Solution for 3 centers}
+  \end{figure}
+\end{frame}
+
+\section{Dynamic Models}
+\subsection{Dynamic Model RPt}
+\begin{frame}[allowframebreaks]
+  \frametitle{Redeployment Problem at time t}
+  \input{RPt}
+\end{frame}
+
+%%%
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{Bibliography}    
+  \begin{thebibliography}{10}    
+    \beamertemplatebookbibitems
+  \bibitem{berman1987stochastic}
+    Berman, Oded and Larson, RC and Parkan, Celik,
+    \emph{The stochastic queue p-median problem},
+    Transportation Science, volume 21, no. 3, pages 207--216, INFORMS,1987.
+  \bibitem{goldberg1990validating}
+    Goldberg, Jeffrey and Dietrich, Robert and Chen, Jen Ming and Mitwasi, M George and Valenzuela, Terry and Criss, Elizabeth,
+    \emph{Validating and applying a model for locating emergency medical vehicles in Tuczon, AZ},
+    European Journal of Operational Research, volume 49, no. 3, pages 308--324, Elsevier, 1990.
+  \bibitem{marianov1998probabilistic}
+    Marianov, Vladimir and Serra, Daniel,
+    \emph{Probabilistic maximal covering location-allocation models for congested systems}
+    Journal of Regional Science, volume 38, number 3, pages 401--424, Wiley Online Library,1998.
+  \bibitem{pereira2015hybrid}
+    Pereira, Marcos A and Coelho, Leandro C and Lorena, Luiz AN and De Souza, Ligia C,
+    \emph{A hybrid method for the Probabilistic Maximal Covering Location--Allocation Problem},
+    Computers \& Operations Research, volume 57, pages 51--59, Elsevier, 2015.
+  \end{thebibliography}
+\end{frame}
+
+\end{document}
