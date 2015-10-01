@@ -1,0 +1,63 @@
+% A model for the Stochastic Queue p-Median Problem
+% Created by Luis Maltos & Roger Rios
+% 2015
+
+\subsection{Model B}
+  
+\begin{frame}
+  This model was developed with the idea that is unlikely that
+  the farthest adjusters serve customers on cases where the system does not become congested.
+  In these cases we can make the assumption that the probability of being served by the $\ell$-th 
+  adjuster is almost zero, where $\ell$ is large enough but less than $p$.
+
+  Parameters:
+  \begin{itemize}
+  \item $M$ is a large integer
+  \item $\ell$ the number of allowed adjusters per customer
+  \item $a_{ik}$ the $k$-th preferred location server regarding the customer $i$.
+  \end{itemize}
+
+  Variables:
+  \begin{itemize}
+  \item $z_j$ the number of adjusters placed at site $j$
+  \item $y_{ij}^k$ if facility $j$, is the $k$-th to cover customer $i$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  The objective, and the constraints (2)-(5) 
+  are practically the same as in model A,
+  with the difference that binary variables $x_j$ from Model A
+  are replaced by integer variables $z_j$ inspired by the results of Berman,
+  and the addition of the following binary variables
+  {\scriptsize
+    \begin{itemize}
+    \item $u_{ij} = \begin{cases} 1 & \mbox{if the number of adjusters between } i \mbox{ and } j \mbox{, inclusive, is less than } \ell \\
+      0 & \mbox{otherwise}
+    \end{cases}$
+    \item $v_{ij} = \begin{cases} 1 & \mbox{if the number of adjusters between } i \mbox{ and } j \mbox{, is less than } \ell - 1 \\
+      0 & \mbox{otherwise}
+    \end{cases}$
+    \end{itemize}
+  }
+
+{\footnotesize
+  \begin{align}
+    \sum_{r = 1}^{k \mid a_{ik}=j}{z_{a_{ir}}} + (p-\ell) u_{ij} & \leq p &  i \in V, j &\in W \\
+    \sum_{r = 1}^{k \mid a_{ik}=j}{z_{a_{ir}}} + M u_{ij} & \geq \ell+1   &  i \in V, j &\in W \\
+    \sum_{k = 1}^{\ell}{y_{ij}^{k}} + M (1 - u_{ij}) & \geq z_j           &  i \in V, j &\in W
+  \end{align}
+  
+  \begin{align}
+    \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} + (p-(\ell-1)) v_{ij} & \leq p                                     &  i \in V, j &\in W\\
+    \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} + M v_{ij}         & \geq \ell                                     &  i \in V, j &\in W\\
+    \sum_{k=1}^{k}{y_{ij}^{k}} + M (1 - v_{ij} + u_{ij}) & \geq \ell - \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} &  i \in V, j &\in W\\
+    \sum_{k=1}^{k}{y_{ij}^{k}} - M (1 - v_{ij} + u_{ij}) & \leq \ell - \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} &  i \in V, j &\in W\\
+    y_{ij}^{k} & \leq u_{ij} + v_{ij}  &        i \in V,j &\in W \\
+    z_j & \in \{0,1,\ldots,p\}         &                j &\in V \nonumber\\
+    y_{ij}^{k} & \in \{0,1\}           &  i\in V,j\in W,k &\in I \nonumber\\
+    u_{ij},v_{ij} & \in \{0,1\}        &        i \in V,j &\in W \nonumber
+  \end{align}
+}
+\end{frame}
