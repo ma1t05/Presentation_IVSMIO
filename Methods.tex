@@ -16,13 +16,43 @@ fraction of dispatches of each server to each region,
 among others.
 \end{frame}
 
-\begin{frame}
-There are some basic assumptions for the application of the hypercube model:
-\begin{enumerate}
-\item Geographical atoms and arrival processes
-\item Servers and service processes
-\item Server assignment and fixed-preference dispatching
-\end{enumerate}
+\subsection{Basic assumptions}
+\begin{frame}{Geographical atoms and arrival processes}
+  \begin{enumerate}
+  \item The region is divided into \textit{M} geographical atoms,
+    which correspond to non-overlapping areas of a city
+  \item The emergency calls of each atom \textit{j} are generated as a Poisson
+    process, independently from the other atoms, with mean arrival rate $\lambda_j$
+  \item The mean ambulance travel times $\tao_{ij}$ between
+    atoms \textit{i} and \textit{j} should be known or could be estimated
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Servers and service processes}
+  \begin{enumerate}
+  \item There are \textit{N} spatially distributed servers, 
+    which can service any atom
+  \item Each server, when idle, stays in its base waiting for a call, 
+    or moves inside a determined area
+  \item The service time for a call includes the set-up time, 
+    the travel time from the base until the location of the accident, 
+    the on-scene time, a possibly related follow-up time, 
+    and the travel time back to the base
+  \item Variations in the service time that are due to variations in travel time 
+    are assumed to be of second order when compared with variations of set-up, 
+    on-scene and related follow-up times
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Server assignment and fixed-preference dispatching}
+  \begin{enumerate}
+  \item In response to each call, 
+    exactly one server is dispatched from its base to the location of the accident
+  \item If there are no available servers, 
+    the call is either queued and serviced according to an FCFS discipline,
+    or it is lost
+  \item There is a list of dispatching preferences for each atom
+  \end{enumerate}
 \end{frame}
 
 \subsection{Calibration process of the mean service times}
@@ -38,16 +68,4 @@ the input mean service times and the output mean service times (computed by the 
 In this case, 
 the hypercube is solved using the computed mean service times as inputs, 
 until the differences among input and output values are sufficiently small
-\end{frame}
-
-\begin{frame}{Probabilistic location models for planning ESSs}
-
-Solution procedures for probabilistic models that use the hypercube model
-Further studies combining the hypercube model with optimization procedures for server
-deployment can be found in the literature; 
-Larson (1979), 
-Berman et al. (1985,1987), 
-Saydam and Aytug (2003), 
-Rajagopalan et al. (2008) and 
-Iannoni et al. (2008a, 2008b).
 \end{frame}
