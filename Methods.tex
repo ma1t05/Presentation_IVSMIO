@@ -3,8 +3,28 @@
 %The use of the hypercube queueing model in the solution of probabilistic location problems
 
 \section{Hypercube queueing model}
+\begin{center}
+  % Pendiente, ajustas coordenadas
+  \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] at (0,0) {
+      %\includegraphics[width=0.9\textwidth]{tmax}
+      \includegraphics[scale=0.3]{hypercube}
+    };
+    \draw (2.5,0.1) node {\scalebox{.4}{(0,0,0,0)} };
+    \draw (6,2) node {\scalebox{.4}{(0,0,0,1)} };
+    \draw (0,0) node {\scalebox{.4}{(0,0,0,0)} };
+    \draw (1,1) node {\scalebox{.4}{(0,0,0,0)} };
+    \draw (2,2) node {\scalebox{.4}{(0,0,0,0)} };
+    \draw (3,3) node {\scalebox{.4}{(0,0,0,0)} };
+    \draw (4,4) node {\scalebox{.4}{(0,0,0,0)} };
+    \draw (5,5) node {\scalebox{.4}{(0,0,0,0)} };
+    \draw (6,6) node {\scalebox{.4}{(0,0,0,0)} };
+  \end{tikzpicture}
+\end{center}
+\end{frame}
+
 \begin{frame}
-Given a system configuration, 
+  Given a system configuration, 
 the hypercube model is able to evaluate a variety of performance
 measures relevant for decision-making, 
 either region-wide or for each server or region.
