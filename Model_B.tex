@@ -4,9 +4,9 @@
 
 \subsection{Model B}
   
-\begin{frame}
+\begin{frame}{Model B}
   This model was developed with the idea that is unlikely that
-  the farthest adjusters serve customers on cases where the system does not become congested.
+  the farthest adjusters serve demand points on cases where the system does not become congested.
   In these cases we can make the assumption that the probability of being served by the $\ell$-th 
   adjuster is almost zero, where $\ell$ is large enough but less than $p$.
 
@@ -20,7 +20,7 @@
   Variables:
   \begin{itemize}
   \item $z_j$ the number of adjusters placed at site $j$
-  \item $y_{ij}^k$ if facility $j$, is the $k$-th to cover customer $i$
+  \item $y_{ij}^k$ if adjuster in $j$, is the $k$-th to cover demand point $i$
   \end{itemize}
 
 \end{frame}
@@ -29,7 +29,7 @@
   The objective, and the constraints (2)-(5) 
   are practically the same as in model A,
   with the difference that binary variables $x_j$ from Model A
-  are replaced by integer variables $z_j$ inspired by the results of Berman,
+  are replaced by integer variables $z_j$ inspired by the results of Berman \cite{berman1987stochastic},
   and the addition of the following binary variables
   {\scriptsize
     \begin{itemize}

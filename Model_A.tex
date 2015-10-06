@@ -5,7 +5,7 @@
 \subsection{Model A}
 
 \begin{frame}
-  This model is based on Goldberg's model, and it contains assignment
+  This model is based on Goldberg's model \cite{goldberg1990validating}, and it contains assignment
   variables for all possible orders.
 
   The following assumptions are considered in the model:
@@ -30,10 +30,9 @@
   \item $W$ set of potential site for adjusters/facilities, with $|W| = m$
   \item $p$ number of available adjusters
   \item $K$  set of possible orders $\{1,2\ldots,p\}$
-  \item $\rho$ is the utilization of each vehicle
-  \item $t_{ij}$ is the expected travel time between zone \textit{i} and base \textit{j}.
-  \item $h_{ij}^{k}$ is the probability that $j$ serves customer $i$ given that
-    is the $k$-th preferred.
+  \item $\rho$ is the utilization of each adjuster
+  \item $t_{ij}$ is the expected travel time between point \textit{i} and potential site \textit{j}.
+  \item $h_{ij}^{k}$ is the probability that $j$ serves point $i$ given that is the $k$-th preferred.
   \item $S_{ij} = \{r\in W | t_{ir} < t_{ij}\}$
   \end{itemize}
   
@@ -41,12 +40,12 @@
   \begin{itemize}
   \item $x_j =
     \begin{cases} 
-      1 & \mbox{if an adjuster is at node } j \\
+      1 & \mbox{if an adjuster is at potential site } j \\
       0 & \mbox{otherwise}
     \end{cases}$
   \item $y_{ij}^k =
     \begin{cases} 
-      1 & \mbox{if adjuster in } j \mbox{, is the k-th to cover customer }i \\
+      1 & \mbox{if adjuster in } j \mbox{, is the k-th to cover demand point }i \\
       0 & \mbox{otherwise}
   \end{cases}$
   \end{itemize}
