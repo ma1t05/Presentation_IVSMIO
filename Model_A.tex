@@ -51,32 +51,50 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{}{}
+\begin{frame}[allowframebreaks]{Model A}{}
 
 {\small
   \begin{equation}
     \min \, \sum_{j=1}^{m}{\sum_{\ell=1}^{k}{\sum_{i=1}^{n}{h_{ij}^{\ell}t_{ij}y_{ij}^{\ell}}}}
   \end{equation}
 }
-{\small
+{\footnotesize
   \begin{align}
-    \sum_{j \in W}{x_j} & = p               &                                  &\\
-    \sum_{j \in W}{y_{ij}^{k}} & = 1        &          i \in V, k &\in K \\
-    y_{ij}^{k} & \leq x_j                   &  i \in V,j \in W, k &\in K \\
-    \sum_{k = 1}^{p}{y_{ij}^{k}} & \leq x_j &          i \in V, j &\in W \\
-    y_{ij}^{k} &\leq \sum_{r\in S_{ij}}{y_{ir}^{k-1}} &  i \in V,j \in W, k &\in K/\{1\} \\
+    \sum_{j \in W}{x_j} & = p & &
+  \end{align}
+  Only locate $p$ adjusters  
+
+  \begin{align}
+    \sum_{j \in W}{y_{ij}^{k}} & = 1 & i \in V, k &\in K
+  \end{align}
+  Each demand point $i$ is covered by an adjuster on each order $k$
+
+  \begin{align}
+    y_{ij}^{k} & \leq x_j &  i \in V,j \in W, k &\in K
+  \end{align}
+  Assigned only if there is an adjuster located at $j$
+
+  \begin{align}
+    \sum_{k = 1}^{p}{y_{ij}^{k}} & \leq x_j & i \in V, j &\in W
+  \end{align}
+  Only assign in one order for each adjuster located 
+  \begin{align}
+    y_{ij}^{k} &\leq \sum_{r\in S_{ij}}{y_{ir}^{k-1}} &  i \in V,j \in W, k &\in K/\{1\}
+  \end{align}
+  Assign $j$ to cober $i$ in order $k$ only if the asign of order $k-1$ was made for some  $r \in S_{ij}$
+  \begin{align}
     x_{j} & \in \{0,1\}      &                  j &\in W \nonumber\\
     y_{ij}^{k} & \in \{0,1\} &  i \in V,j \in W,k &\in K \nonumber
   \end{align}
 }
 \end{frame}
 
-\begin{frame}
-  This model was tested with a benchmark instance of 30 points, 
-  where $V = W$.
-  For values of $p = 1,\ldots,7$ the optimal solution was found in less than one minute.
-
-  For other benchmark instances was impossible to find the solution
-  because they have more than 300 points, and the proposed model grows to over one million variables.
+%\begin{frame}
+%  This model was tested with a benchmark instance of 30 points, 
+%  where $V = W$.
+%  For values of $p = 1,\ldots,7$ the optimal solution was found in less than one minute.
+%
+%  For other benchmark instances was impossible to find the solution
+%  because they have more than 300 points, and the proposed model grows to over one million variables.
 %  For some large instances ($n = 50$ , $m = 30$)%
-\end{frame}
+%\end{frame}

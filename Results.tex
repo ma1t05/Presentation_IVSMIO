@@ -24,7 +24,10 @@
       \hline
     \end{tabular}
   \end{table}
-  
+\end{frame}
+
+\subsection{Model A}
+\begin{frame}
   The Model A was solved to optimality for all the values of $p$ when $m = 20$,
   for the rest of the values of $m$, none optimal solution was reported in less than one hour.
 
@@ -32,6 +35,7 @@
 
 \end{frame}
 
+\subsection{Model B}
 \begin{frame}{Model B}
   Relation of $\frac{\ell}{p}$ versus the solution time.
   \begin{center}
@@ -65,7 +69,20 @@
 
 %% Caso 100 30 12
 \frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_01}\caption{n = 100, m = 30, p = 12, l = 1}}\end{figure}}
-\frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_02}\caption{n = 100, m = 30, p = 12, l = 2}}\end{figure}}
+\frame{
+  \begin{figure}[h!]
+    \centering{
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] at (0,0) {
+          \includegraphics[scale=0.35]{Test_100_30_12_02}
+        };
+        \draw[red, dashed] (0.4,4.2) -- (1.1,3.2);
+        \draw[red, dashed] (6.05,3.8) -- (5.5,4.5);
+      \end{tikzpicture}
+    }
+    \caption{n = 100, m = 30, p = 12, l = 2}
+  \end{figure}
+}
 \frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_03}\caption{n = 100, m = 30, p = 12, l = 3}}\end{figure}}
 \frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_04}\caption{n = 100, m = 30, p = 12, l = 4}}\end{figure}}
 \frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_05}\caption{n = 100, m = 30, p = 12, l = 5}}\end{figure}}

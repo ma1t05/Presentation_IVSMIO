@@ -1,3 +1,4 @@
+
 % A model for the Stochastic Queue p-Median Problem
 % Created by Luis Maltos & Roger Rios
 % 2015
@@ -10,6 +11,9 @@
   In these cases we can make the assumption that the probability of being served by the $\ell$-th 
   adjuster is almost zero, where $\ell$ is large enough but less than $p$.
 
+\end{frame}
+
+\begin{frame}{Model B}
   Parameters:
   \begin{itemize}
   \item $M$ is a large integer
@@ -25,13 +29,13 @@
 
 \end{frame}
 
-\begin{frame}[allowframebreaks]
+\begin{frame}[allowframebreaks]{Model B}
   The objective, and the constraints (2)-(5) 
   are practically the same as in model A,
   with the difference that binary variables $x_j$ from Model A
   are replaced by integer variables $z_j$ inspired by the results of Berman \cite{berman1987stochastic},
   and the addition of the following binary variables
-  {\scriptsize
+  {\footnotesize
     \begin{itemize}
     \item $u_{ij} = \begin{cases} 1 & \mbox{if the number of adjusters between } i \mbox{ and } j \mbox{, inclusive, is less than } \ell \\
       0 & \mbox{otherwise}
@@ -41,20 +45,55 @@
     \end{cases}$
     \end{itemize}
   }
+\end{frame}
 
+\begin{frame}{Model B}{}
 {\footnotesize
   \begin{align}
-    \sum_{r = 1}^{k \mid a_{ik}=j}{z_{a_{ir}}} + (p-\ell) u_{ij} & \leq p &  i \in V, j &\in W \\
-    \sum_{r = 1}^{k \mid a_{ik}=j}{z_{a_{ir}}} + M u_{ij} & \geq \ell+1   &  i \in V, j &\in W \\
+    \sum_{r = 1}^{k \mid a_{ik}=j}{z_{a_{ir}}} + (p-\ell) u_{ij} & \leq p &  i \in V, j &\in W
+  \end{align}
+  Checks if the number of adjusters between $i$ and $j$, inclusive, is less or equal than $\ell$
+
+  \begin{align}
+    \sum_{r = 1}^{k \mid a_{ik}=j}{z_{a_{ir}}} + M u_{ij} & \geq \ell+1   &  i \in V, j &\in W
+  \end{align} 
+  Checks if the number of adjusters between $i$ and $j$, inclusive, is greater than $\ell$ \\
+
+  \begin{align}
     \sum_{k = 1}^{\ell}{y_{ij}^{k}} + M (1 - u_{ij}) & \geq z_j           &  i \in V, j &\in W
   \end{align}
-  
+  Assign $z_j$ times $j$ to $i$ if $u_{ij} = 1$
+}
+\end{frame}
+
+\begin{frame}{Model B}{}
+{\scriptsize
   \begin{align}
-    \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} + (p-(\ell-1)) v_{ij} & \leq p                                     &  i \in V, j &\in W\\
-    \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} + M v_{ij}         & \geq \ell                                     &  i \in V, j &\in W\\
-    \sum_{k=1}^{k}{y_{ij}^{k}} + M (1 - v_{ij} + u_{ij}) & \geq \ell - \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} &  i \in V, j &\in W\\
-    \sum_{k=1}^{k}{y_{ij}^{k}} - M (1 - v_{ij} + u_{ij}) & \leq \ell - \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} &  i \in V, j &\in W\\
-    y_{ij}^{k} & \leq u_{ij} + v_{ij}  &        i \in V,j &\in W \\
+    \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} + (p-(\ell-1)) v_{ij} & \leq p &  i \in V, j &\in W
+  \end{align}
+  Checks if the number of adjusters between $i$ and $j$, is less than $\ell$
+  \begin{align}
+    \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} + M v_{ij} & \geq \ell &  i \in V, j &\in W
+  \end{align}
+  Checks if the number of adjusters between $i$ and $j$, greater or equal than $\ell$
+  \begin{align}
+    \sum_{k=1}^{k}{y_{ij}^{k}} + M (1 - v_{ij} + u_{ij}) & \geq \ell - \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} &  i \in V, j &\in W
+  \end{align}
+  Assign $j$ to $i$ the time remaining to complete $\ell$ assignments  
+  \begin{align}
+    \sum_{k=1}^{k}{y_{ij}^{k}} - M (1 - v_{ij} + u_{ij}) & \leq \ell - \sum_{r = 1}^{k \mid a_{i(k+1)}=j}{z_{a_{ir}}} &  i \in V, j &\in W
+  \end{align}
+  Assign $j$ to $i$ the time remaining to complete $\ell$ assignments
+}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Model B}{}
+{\footnotesize
+  \begin{align}
+    y_{ij}^{k} & \leq u_{ij} + v_{ij}  &        i \in V,j &\in W
+  \end{align}
+  Assign $j$ to $i$ only if in the first $\ell$ adjusters near $i$
+  \begin{align}
     z_j & \in \{0,1,\ldots,p\}         &                j &\in V \nonumber\\
     y_{ij}^{k} & \in \{0,1\}           &  i\in V,j\in W,k &\in I \nonumber\\
     u_{ij},v_{ij} & \in \{0,1\}        &        i \in V,j &\in W \nonumber
