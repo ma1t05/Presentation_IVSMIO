@@ -12,15 +12,22 @@
 \begin{frame}
   Different random instances were generated
   to validate the proposed formulations.
-  For $n = 100$ we created 3 instances with $m = 20,30,40$,
-  and different values of $p$, shown in the following table.
+  For $n = 100$ we created 8 instances with $m = 20,30,\ldots,100$,
+  and they were tested with different values of $p$ from 5 to $\frac{m}{2}$,
+  shown in the following table.
   \begin{table}
     \centerign
     \begin{tabular}{|c|c|c|}\hline
       n & m & p \\ \hline
-      100 & 20 & 5-18 \\
-      100 & 30 & 7-25 \\
-      100 & 40 & 9,10 \\
+      100 & 20 & 5-10 \\
+      100 & 30 & 5-15 \\
+      100 & 40 & 5-20 \\
+      100 & 50 & 5-25 \\
+      100 & 60 & 5-30 \\
+      100 & 70 & 5-35 \\
+      100 & 80 & 5-40 \\
+      100 & 90 & 5-45 \\
+      100 & 100 & 5-50 \\
       \hline
     \end{tabular}
   \end{table}
@@ -28,8 +35,11 @@
 
 \subsection{Model A}
 \begin{frame}
-  The Model A was solved to optimality for all the values of $p$ when $m = 20$,
-  for the rest of the values of $m$, none optimal solution was reported in less than one hour.
+  The Model A was solved to optimality only when $p < 25$,
+  in an average time of 217 seconds.
+  for the rest of the values of $p$, 
+  no factible solution was found for $65\%$ of the test cases in less than 20 minutes,
+  for the rest test cases, an average gap of $27\%$ was obtained.
 
   The Model B was tested with each combination of $n,m,p$ and $\ell$ from $1,\ldots,p$.
 
@@ -69,20 +79,7 @@
 
 %% Caso 100 30 12
 \frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_01}\caption{n = 100, m = 30, p = 12, l = 1}}\end{figure}}
-\frame{
-  \begin{figure}[h!]
-    \centering{
-      \begin{tikzpicture}
-        \node[anchor=south west,inner sep=0] at (0,0) {
-          \includegraphics[scale=0.35]{Test_100_30_12_02}
-        };
-        \draw[red, dashed] (0.4,4.2) -- (1.1,3.2);
-        \draw[red, dashed] (6.05,3.8) -- (5.5,4.5);
-      \end{tikzpicture}
-    }
-    \caption{n = 100, m = 30, p = 12, l = 2}
-  \end{figure}
-}
+\frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_02}\caption{n = 100, m = 30, p = 12, l = 2}}\end{figure}}
 \frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_03}\caption{n = 100, m = 30, p = 12, l = 3}}\end{figure}}
 \frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_04}\caption{n = 100, m = 30, p = 12, l = 4}}\end{figure}}
 \frame{\begin{figure}[h!]\centering{\includegraphics[scale=0.35]{Test_100_30_12_05}\caption{n = 100, m = 30, p = 12, l = 5}}\end{figure}}

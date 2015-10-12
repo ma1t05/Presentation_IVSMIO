@@ -53,7 +53,7 @@ tmp.close()
 tmp = open('tmp.gp','w')
 tmp.write('set term svg \n')
 tmp.write('set output \'SQpM_problem.svg\'\n')
-tmp.write('set title "n = '+str(n)+' m = '+str(m)+' p = '+str(p)+'"\n')
+tmp.write('set title "n = '+str(n)+' m = '+str(m)+' p = 5"\n')
 tmp.write('set xrange [-50:1050]\n')
 tmp.write('set yrange [-50:1050]\n')
 tmp.write('set key outside \n')
@@ -79,7 +79,7 @@ for p in sets :
     tmp.write('"'+filename+'" using 1:2:(12) with circles notitle lc rgb "'+colors[i-1]+'", ')
     i += 1
 tmp.write('"servers.dat" using 1:2 w p lt 2 pt 5 lc rgb "dark-grey" title "Servers", ')
-tmp.write('"sites.dat" using 1:2 w p lt 2 pt 7 lc rgb "dark-grey" title "Potencial sites"')
+tmp.write('"sites.dat" using 1:2 w p lt 2 pt 7 lc rgb "dark-grey" title "Potential sites"')
 tmp.write('\n')
 tmp.close()
 
